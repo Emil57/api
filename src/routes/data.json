@@ -1,0 +1,14 @@
+[
+    {
+        "receta 1":"torta de asada",
+        "tipo":"comida",
+        "ingredientes":"pan, mayonesa, carne, lechuga",
+        "cant. personas": "1"
+    },
+    {
+        "receta 2" : "huevo c/ jamon",
+        "tipo":"desayuno",
+        "ingredientes":"huevo, jamon, tortilla ",
+        "cant. personas": "1"
+    }
+]

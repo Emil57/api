@@ -9,7 +9,7 @@ app.set('json spaces',2);
 app.use(morgan('dev')); //dev o combined
 
 //rutas
-app.use('/',require('./routes/rutas'));
+app.use('/api',require('./routes/rutas'));
 
 app.listen(3000);
 

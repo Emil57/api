@@ -22,7 +22,9 @@ router.get('/user',(req,res) =>{
 
 
 router.post('/',(req,res)=>{
-    console.log(req.body);
+    JSON.parse(req.body,reviver);
+    console.log(JSON.parse(req.body,reviver));
+    
     res.send('Received');
 });
 router.post('/agregar',(req,res)=>{

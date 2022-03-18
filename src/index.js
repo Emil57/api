@@ -1,11 +1,11 @@
 const express = require('express');
+const bodyParser = require('body-parser'); //*
 const app = express();
 const morgan = require('morgan');
-
 //asignar puerto
-app.set('port',2918);
+app.set('port',2190);
 app.set('json spaces',2);
-
+app.use(bodyParser.json()); //*
 app.use(morgan('dev')); //dev o combined
 
 //rutas

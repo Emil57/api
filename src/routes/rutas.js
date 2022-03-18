@@ -3,47 +3,58 @@ const router = Router();
 
 const recetas = require('./data.json');
 //console.log(recetas); //comprobamos 
+
 router.get('/lista',(req,res) =>{
     console.log(req.body);
-    res.json(recetas);
+    //res.json(recetas);
+    res.send(recetas);
 });
-router.post('/buscar/nombre',(req,res)=>{
-   
-});
-router.post('/buscar/tipo',(req,res)=>{
-   
-});
-router.get('/user',(req,res) =>{
-    const data = {
-        "name":"dimas", 
-        "id" : "37211"
-    };
-    res.json(data)
+router.get('/buscar/nombre/:nombre',(req,res)=>{
+    //console.log(recetas);
+    const {nombre} = req.params;
+    recetas.forEach(actual => {
+        if(actual.receta == nombre) {
+            res.send(actual);
+            console.log(actual);
+            res.send('Done');
+        }
+    });
 });
 
-router.post('/',(req,res)=>{
-    //const {receta, tipo , ingredientes, personas} = req.body; 
-    console.log(req.body);
-    res.send('Received');
+router.get('/buscar/id/:id',(req,res)=>{
+    const {id} = req.params;
+    recetas.forEach(rec => {
+        if(rec.id == id) {
+            res.send(rec);
+            console.log(rec);
+            res.send('Done');
+        }
+    });    
 });
+
 router.post('/agregar',(req,res)=>{
-    const {tipo, ingredientes, personas} = req.body;
-    console.log(tipo);
-     /*if(tipo && ingredientes && personas){
+    const {receta,tipo,ingredientes,personas} = req.body;
+    if(receta && tipo && ingredientes && personas){
         const id = recetas.length +1; 
-        const nuevaReceta = {...req.body, id};
-        console.log(nuevaReceta);
-        res.send(recetas);
-        recetas.push(nuevaReceta)
+        const nuevaReceta = {id, ...req.body};
+        recetas.push(nuevaReceta);
+        res.send('Nueva receta agregada');
      } else{
-         res.send('ERROR');
-     } */
+         res.send('Data not found');
+     } 
 }); 
-router.post('/modificar',(req,res)=>{
-   
-});
-router.post('/eliminar',(req,res)=>{
-   
+
+router.get('/eliminar/:comida',(req,res)=>{
+   const {comida} = req.params;
+   console.log(comida);
+   recetas.forEach(lista =>{
+       console.log(lista.receta);
+       if(lista.receta == comida){
+            recetas.pop(lista);
+            console.log(recetas);
+            res.send('Done');
+       }
+    });
 });
 
 module.exports = router;

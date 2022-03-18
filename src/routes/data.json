@@ -1,8 +1,23 @@
 [
     {
+        "id" : "1",
         "receta":"torta de asada",
         "tipo":"comida",
         "ingredientes":["pan", "mayonesa", "carne"],
         "personas": "1"
+    }, 
+    {
+        "id" : "2",
+        "receta":"tacos",
+        "tipo":"desayuno chido",
+        "ingredientes":["salsas", "tortillas", "carne"],
+        "personas": "3"
+    },
+    {
+        "id" : "3",
+        "receta":"quesadillas",
+        "tipo":"desayuno ",
+        "ingredientes":[ "tortillas", "carne","queso", "frijoles"],
+        "personas": "2"
     }
 ]
